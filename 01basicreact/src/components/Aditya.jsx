@@ -11,3 +11,9 @@ export const CustomTag1 = () => {
         <div> Hello World from CustomTag1</div>
     )
 };
+
+export const MyApp = () => {
+    return(
+        <h1>Hello World From MYAPP </h1>
+    )
+}
