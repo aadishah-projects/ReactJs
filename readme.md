@@ -7,3 +7,6 @@ bun create vite
 ✔ Select a variant: › JavaScript
 
 bun install
+
+CTRL + Space --> to extend the snippets
+rfce :: react functional components
