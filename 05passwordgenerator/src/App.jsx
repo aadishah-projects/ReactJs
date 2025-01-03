@@ -22,9 +22,7 @@ function App() {
     {
       let char = Math.random() * str.length + 1;
       anArray.push(str.charAt(char))
-      // pass = str.charAt(char)
     }
-    // console.log(password)
     updatepassword(anArray.join(''))
   }, [length, charflag, numflag, updatepassword])
   
@@ -32,18 +30,8 @@ function App() {
 
   return (
     <>
-      {/* <div className='w-full max-w-md mx-auto shadow-md rounded-lg px-4 my-8 text-hite bg-gray-700'>test</div> */}
+   
       <div className='bg-gray-500  text-white rounded-md shadow-md w-full max-w-md px-7 py-3 mx-auto my-7'>
-        {/* <div className='flex shadow rounded-lg overflow-hidden mb-4'>
-          <input type="text"
-          ['s',''d].join('') sd
-            value={password}
-            className='outline-none w-full py-1 px-3 text-gray-500'
-            placeholder='password'
-            readOnly
-          />
-        
-        </div> */}
         <div className='mx-auto py-3 font-serif text-center mt-0'>
         Password Generator
         </div>
