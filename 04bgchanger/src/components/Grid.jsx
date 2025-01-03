@@ -1,32 +1,47 @@
 import React from 'react'
+import { useState } from 'react'
 
 function Grid(props) {
-    const changebg1 = () => {
-        document.bgColor = 'red'
+
+    const [color, setColor] = useState('')
+
+    const colorChanger = (color) => {
+        document.body.style.backgroundColor = color
     }
-    const changebg2 = () => {
-        document.bgColor = 'black'
+
+    const generateRandomColor = () => {
+        const values = 'ABCDEF0123456789'
+        const color = ['#']
+        for (let i = 0; i < 6; i++) {
+            let char = Math.random() * values.length + 1;
+           color.push(values.charAt(char)) 
+        }
+        return color.join('')
     }
+
+    const textWhite = ['black', 'sky-blue', 'blue', 'purple']
+
     return (
-        <div className=' bg-orange-400 grid grid-cols-12 p-4 w-fit gap-2'> Hello
-            {/* {props.color.forEach(element => {
-                console.log(element);
-            })} */}
-            {/* < button onClick= {changebg1} className = "bg-red-400">Red</button>
-            < button onClick={changebg2} className = "bg-black text-slate-50">Black</button> */}
+        <div className=' bg-orange-400 grid grid-cols-12 p-4 w-fit gap-2 rounded-lg'>
             {
-                props.colors.map((element, index) => (                   
-                    < button key={index} onClick={document.body.style.backgroundColor = element} style={ bgColor =  element } className={`bg-${element}`}>{element}</button>
-            ))
+                props.color.map((element, index) => {
+                    return <button
+                        key={index}
+                        onClick={() => {
+                            colorChanger(element)
+                        }}
+                        style={{ backgroundColor: element }}
+                        className={`px-4 py-2 rounded-lg ${textWhite.includes(element) ? 'text-white': ''}`}
+                    >
+                        {element}
+                    </button>
+})
             }   
-            {/* < button className = "bg-black-400">Black</button>
-            < button className = "bg-black-400">Black</button>
-            < button className = "bg-black-400">Black</button>
-            < button className = "bg-black-400">Black</button>
-            < button className = "bg-black-400">Black</button>
-            < button className = "bg-black-400">Black</button>
-            < button className = "bg-black-400">Black</button>
-            < button className = "bg-black-400">Black</button>       */}
+            <button
+                
+            >
+                Random
+            </button>
       </div>
   )
 }
