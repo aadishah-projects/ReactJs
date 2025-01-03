@@ -8,7 +8,6 @@ function App() {
   const [numflag, updatenumflag] = useState(false)
   const [charflag, updatecharflag] = useState(false)
   const [password, updatepassword] = useState("admin")
-  const [rangeValue, setRangeValue] = useState(6)
 
 
   const passwordGenerator = useCallback(() => { 
