@@ -8,19 +8,18 @@ function Grid(props) {
         document.bgColor = 'black'
     }
     return (
-        <div className=' bg-white grid grid-cols-11 p-4 w-fit gap-2'>
+        <div className=' bg-orange-400 grid grid-cols-12 p-4 w-fit gap-2'> Hello
             {/* {props.color.forEach(element => {
                 console.log(element);
             })} */}
             {/* < button onClick= {changebg1} className = "bg-red-400">Red</button>
-            < button onClick={changebg2} className = "bg-black-400">Black</button> */}
+            < button onClick={changebg2} className = "bg-black text-slate-50">Black</button> */}
             {
-                props.color.map((element, index) => (                   
-                    < button key={index} onClick={ document.body.style.backgroundColor = element } className={`bg-${element}`}>{element}</button>
+                props.colors.map((element, index) => (                   
+                    < button key={index} onClick={document.body.style.backgroundColor = element} style={ bgColor =  element } className={`bg-${element}`}>{element}</button>
             ))
-            }
-{/*            
-            < button className = "bg-black-400">Black</button>
+            }   
+            {/* < button className = "bg-black-400">Black</button>
             < button className = "bg-black-400">Black</button>
             < button className = "bg-black-400">Black</button>
             < button className = "bg-black-400">Black</button>

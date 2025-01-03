@@ -4,24 +4,33 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Grid from './components/Grid.jsx'
 function App() {
-  const [count, setCount] = useState(0)
-  const tailwindColors = [
-    "red-500",      // Crimson alternative
-    "cyan-500",     // Turquoise alternative
-    "purple-400",   // Lavender alternative
-    "yellow-600",   // Goldenrod alternative
-    "teal-500",     // Teal (exists in Tailwind)
-    "orange-400",   // Coral alternative
-    "indigo-500",   // Indigo (exists in Tailwind)
-    "lime-500",     // Chartreuse alternative
-    "amber-600",    // Sienna alternative
-    "slate-600",    // Slate (exists in Tailwind)
-    "red-400"       // Tomato alternative
-  ];
+  const [color, setColor] = useState("olive") // To update the color use the function setcolor()
+  // color = [
+  //   "red",      // Crimson alternative
+  //   "green",     // Turquoise alternative
+  //   "white",   // Lavender alternative
+  //   "black",   // Goldenrod alternative
+  //   "purple",     // Teal (exists in Tailwind)
+  //   "blue",   // Coral alternative
+  //   "pink",   // Indigo (exists in Tailwind)
+  //   "lime",     // Chartreuse alternative
+  //   "teal",    // Sienna alternative
+  //   "violet",       // Tomato alternative
+  //   "blue",    // Slate (exists in Tailwind)
+  // ];
   
   return (
     <>
-      <Grid color={tailwindColors} />
+      <div className='w-full h-screen' style={{ backgroundColor: color }}>
+        <div className="fixed flex flex-wrap justify-center bottom-12 inset-x-0 px-2">
+          <div className='fixed flex flex-wrap bg-white justify-center gap-3 shadow-lg px-3 py-2 rounded-3xl'>
+            <button onClick={() => setColor("red")} className='outline-none px-4 rounded-full text-black' style={{ backgroundColor: "red" }}>RED</button> 
+            <button onClick={() => setColor("green")} className='outline-none px-4 rounded-full text-black' style={{ backgroundColor: "green" }}>green</button> 
+            <button onClick={() => setColor("blue")} className='outline-none px-4 rounded-full text-black' style={{ backgroundColor: "blue" }}>blue</button> 
+            <button onClick={() => setColor("yellow")} className='outline-none px-4 rounded-full text-black' style={{ backgroundColor: "yellow" }}>yellow</button>
+          </div >
+        </div>
+      </div>
     </>
   )
 }
