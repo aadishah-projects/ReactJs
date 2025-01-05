@@ -13,7 +13,10 @@ function useCurrencyInfo(currency)
                 (res) => res.json() 
             )
                 .then(
-                    (res) => setData(res[currency])
+                    (res) => {
+                        setData(res[currency])
+                        console.log(res)
+                    } 
                 )
         },
         [currency] // Dependencies 

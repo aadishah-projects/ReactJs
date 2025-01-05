@@ -1,15 +1,15 @@
 import { useState } from 'react'
 import { InputBox } from './components'
-import {useCurrencyInfo} from './hooks/usecurrencyinfo'
+import useCurrencyInfo from './hooks/useCurrencyInfo.js'
 
 function App() {
 
   const [amount, setAmount] = useState(0)
-  const [from, setFrom] = useState("npr")
+  const [from, setFrom] = useState("inr")
   const [to, setTo] = useState("usd")
   const [result, setResult] = useState(0)
 
-  const currencyInfo = useCurrencyInfo() //data dics
+  const currencyInfo = useCurrencyInfo(from) //data dics
 
   const options = Object.keys(currencyInfo)
 
@@ -31,7 +31,7 @@ function App() {
     <div
         className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
          style={{
-             backgroundImage: `url('https://c4.wallpaperflare.com/wallpaper/287/77/179/money-minimalism-wallpaper-preview.jpg')`,
+             backgroundImage: `url('https://c1.wallpaperflare.com/preview/863/821/176/money-bitcoin-business-success.jpg')`,
          }}
     >
         <div className="w-full">
@@ -47,7 +47,7 @@ function App() {
                             label="From"
                             amount={amount}
                             currencyOptions={options}
-                            onCurrencyChange={(cur) => setAmount(cur)}
+                            onCurrencyChange={(currency) => setFrom(currency)}
                             selectedCurrency={from}
                             onAmountChange={(amount) => setAmount(amount)}
                 
@@ -67,7 +67,7 @@ function App() {
                             label="To"
                             amount={result}
                             currencyOptions={options}
-                            onCurrencyChange={(cur) => setTo(cur)}
+                            onCurrencyChange={(Currency) => setTo(Currency)}
                             selectedCurrency={to}
                             amountDisable
                         />
