@@ -64,4 +64,4 @@ Add the following to `index.css`:
 ---
 
 This README provides the steps for setting up React with Vite, configuring Tailwind CSS, and using useful development shortcuts.
-```
+
