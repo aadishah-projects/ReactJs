@@ -1,6 +1,4 @@
-import { useCallback, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useCallback, useState,useEffect, useRef} from 'react'
 import './App.css'
 
 function App() {
@@ -10,7 +8,21 @@ function App() {
   const [password, updatepassword] = useState("admin")
 
 
-  const passwordGenerator = useCallback(() => { 
+  const copypasswordtoclip = useCallback(
+  () =>
+    {
+      passwordRef.current?.select()
+      passwordRef.current?.setSelectionRange(0,3)
+      window.navigator.clipboard.writeText(password)
+    },
+    [password]
+  )
+
+  // Using Ref Hooks
+  const passwordRef = useRef(null)
+
+  const passwordGenerator = useCallback( //Optimize the call back function
+    () => { 
     let pass = ""
     const anArray = []
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
@@ -18,15 +30,22 @@ function App() {
     if (numflag) str += "0123456789"
     if (charflag) str += "!@#$%^&*()"
     
-    for (let i = 0; i <= length; i++)
+    for (let i = 1; i <= length; i++)
     {
-      let char = Math.random() * str.length + 1;
+      let char = Math.floor(Math.random() * str.length + 1);
       anArray.push(str.charAt(char))
     }
     updatepassword(anArray.join(''))
-  }, [length, charflag, numflag, updatepassword])
+      
+    }, [length, charflag, numflag, updatepassword]
+  )
   
- 
+  useEffect(   // Rerun the callback function
+    () => {
+      passwordGenerator()
+    }, 
+    [length, charflag, numflag, passwordGenerator]
+ )
 
   return (
     <>
@@ -41,9 +60,11 @@ function App() {
             className='px-3 py-1 w-full text-gray-700'
             placeholder='password'
             readOnly
+            ref={passwordRef}
           />
           <button
-            onClick={() => {navigator.clipboard.writeText(password)}}
+            // onClick={() => {navigator.clipboard.writeText(password)}}
+            onClick={copypasswordtoclip}
             className='px-2 py-0 shadow-lg bg-slate-700'>
             copy
           </button>
@@ -59,7 +80,7 @@ function App() {
               className='cursor-pointer'
               onChange={(e) => {
                 updatelength(e.target.value)
-                passwordGenerator()
+                // passwordGenerator
               }}
             />
             <label className="text-sm font-mono">Length : {length} </label>
