@@ -32,12 +32,12 @@ export default function Home() {
                 </div>
 
                 <div className="absolute inset-0 w-full sm:my-20 sm:pt-1 pt-12 h-full ">
-                    <img className="w-96" src="./Images/image1.png" alt="image1" />
+                    <img className="w-96" src="https://images.prismic.io/etvasweb/9f37552b-3a13-4a4c-b1d5-5461a9caf2aa_Remote2.png?auto=compress,format" alt="image1" />
                 </div>
             </aside>
 
             <div className="grid  place-items-center sm:mt-20">
-                <img className="sm:w-96 w-48" src="./Images/image2.png" alt="image2" />
+                <img className="sm:w-96 w-48" src="https://images.prismic.io/etvasweb/15dc1049-7eb2-4f82-baf8-3ebe59ed4998_Remote1.png?auto=compress,format" alt="image2" />
             </div>
 
             <h1 className="text-center text-2xl sm:text-5xl py-10 font-medium">Lorem Ipsum Yojo</h1>
