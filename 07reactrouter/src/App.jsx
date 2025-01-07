@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import './App.css'
-
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
+import Home from './components/Home/Home'
 function App() {
 
   return (
     <>
-      <h1 className=' p-2 py-0 w-fit mx-auto mt-3 rounded-lg shadow-md font-serif text-[#ffffff] text-center'>React router</h1>
     </>
   )
 }
