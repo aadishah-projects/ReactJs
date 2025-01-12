@@ -4,11 +4,13 @@
 1. **Initialize the project with Vite using Bun:**
    ```bash
    bun create vite
+   npm create vite
    ```
 
 2. **Install dependencies:**
    ```bash
    bun install
+   npm i
    ```
 
 ---
@@ -24,11 +26,13 @@
 1. **Install Tailwind CSS and related dependencies:**
    ```bash
    bun install -D tailwindcss postcss autoprefixer
+   npm install -D tailwindcss postcss autoprefixer
+   
    ```
 
 2. **Initialize Tailwind CSS configuration:**
    ```bash
-   bun tailwindcss init -p
+   npm tailwindcss init -p
    ```
 
 ---
